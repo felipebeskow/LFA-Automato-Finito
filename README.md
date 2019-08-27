@@ -6,7 +6,7 @@ Para a implementação do Automato Finito Determinístico foi escolhida a lingua
 Havia escolhido inicialmente a linguagem C, porém por conta da complexidade de lidar com ponteiro, já que idealizei usar uma lista encadeada acabei desistindo.
 
 O código em Python ficou da seguinte forma:
-'''
+```
 from sys import argv
 
 arq = []
@@ -54,40 +54,40 @@ leArquivo(argv[1])
 separaArquivo()
 
 automato()
-'''
+```
 
 
 Inicialmente no programa importei o módulo que será usado para obter os argumentos passados ao programa:
-'''
+```
 from sys import argv
-'''
+```
 
-Após isso declarei as listas que iremos usar. Por mais que Python seja uma linguagem que não precise que você declare as variáveis, fiz isso para que pudesse dar o comando ``append'' mais a frente.
-'''
+Após isso declarei as listas que iremos usar. Por mais que Python seja uma linguagem que não precise que você declare as variáveis, fiz isso para que pudesse dar o comando ''append'' mais a frente.
+```
 arq = []
 transicao = []
-'''
+```
 
-Criei a função ``leArquivo'' para ler somente o arquivo e armazenar os valores do arquivo que estamos lendo. As informações ficarão salvas na lista ``arq''.
-'''
+Criei a função ''leArquivo'' para ler somente o arquivo e armazenar os valores do arquivo que estamos lendo. As informações ficarão salvas na lista ''arq''.
+```
 def leArquivo(localArq):
     arquivo = open(localArq, "r")
     for linha in arquivo.readlines():
         arq.append(linha[:-1])   
     arquivo.close()
-'''
+```
 
-A função ``separaArquivo'' pega a lista ``arq'' e separa a parte das transições em uma lista a parte chamada ``transicao''. A função split separa a string lida em uma lista que é adicionada a lista ``transicao'' criando uma lista de listas.
-'''
+A função ''separaArquivo'' pega a lista ''arq'' e separa a parte das transições em uma lista a parte chamada ''transicao''. A função split separa a string lida em uma lista que é adicionada a lista ''transicao'' criando uma lista de listas.
+```
 def separaArquivo():
     x=3 
     while x<len(arq):
         transicao.append(arq[x].split(" "))
         x+=1
-'''
+```
 
-A função ``automato'' é a cereja do bolo do código. Aqui está a lógico central do programa. Após setar as variáveis, o \textit{while} percorrerá a palavra que iremos testar. A cada iteração ele testa se há uma transicao válida. Se não, ele interrompe o \textit{while}. Após isso exibe a mensagem se a palavra é valida ou não, se é aceita ou não.
-'''
+A função ''automato'' é a cereja do bolo do código. Aqui está a lógico central do programa. Após setar as variáveis, o *while* percorrerá a palavra que iremos testar. A cada iteração ele testa se há uma transicao válida. Se não, ele interrompe o *while*. Após isso exibe a mensagem se a palavra é valida ou não, se é aceita ou não.
+```
 def automato():
 	k = 0
 	estado = 0
@@ -106,13 +106,13 @@ def automato():
 		print("A cadeia foi aceita")
 	else:
 		print("A cadeia foi rejeitada")
-'''
+```
 
 E por ultimo temos a execução das funções.
-'''
+```
 leArquivo(argv[1])
 
 separaArquivo()
 
 automato()
-'''
+```
